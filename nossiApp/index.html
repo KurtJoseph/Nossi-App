@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Nossi App</title>
+    <link rel="stylesheet" href="css/nossi.css" />
+    <link rel="stylesheet" href="css/jquery.mobile.icons.min.css" />
+    <link rel="stylesheet" href="css/jquery.mobile.structure-1.4.5.css" />
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+    <link rel="stylesheet" href="css/jqueryui.css">
+
+    <style>
+          .draggable { width: 90px; height: 90px; padding: 0.5em; float: left; margin: 0 10px 10px 0; }
+          #draggable, #draggable2 { margin-bottom:20px; }
+          #draggable { cursor: n-resize; }
+          #draggable2 { cursor: e-resize; }
+          #containment-wrapper { width: 95%; height:150px; border:2px solid #ccc; padding: 10px; }
+          h3 { clear: left; }
+    </style>
+        <style type="text/css">
+            #logo {
+                width: 65%;
+                height: auto;
+                position: relative;
+                margin: auto;
+                padding-left: -20px;
+    }
+           /* #rad {
+                width: 75%;
+                height: auto;
+                position: relative;
+                margin: auto;
+                padding-left: -20px;
+    }
+
+            /*#field {
+                position: relative;
+                margin: auto;
+                padding-left: 90px;
+            }
+            .draggable { width: 90px; height: 90px; padding: 0.5em; float: left; margin: 0 10px 10px 0; }
+                #draggable, #draggable2 { margin-bottom:20px; }
+                #draggable { cursor: n-resize; }
+                #draggable2 { cursor: e-resize; }
+                #containment-wrapper { width: 95%; height:150px; border:2px solid #ccc; padding: 10px; }
+            h3 { clear: left; }*/
+        </style>
+    <script src="js/myJquery.js"></script>
+    <script src="js/jquery.mobile-1.4.5.js"></script>
+    <script src="js/angular.min.js"></script>
+     
+
+        <style>
+        .accordionItem {
+            height: 40px;
+            overflow: hidden;
+            cursor: pointer;
+            -webkit-transition: all .5s;
+            -moz-transition: all .5s;
+            -ms-transition: all .5s;
+            -o-transition: all .5s;
+            transition: all .5s;
+        }
+        /*.accordionItem:hover {
+            height: 200px;
+        }*/
+    </style>
+
+    <script>
+        // $(document).ready(function(){
+        //     $(".accordionItem")eq().click(function(){
+        //         //$(".accordionItem").css("height","40px");
+        //         $(this).css("height","500px");
+        //     });
+        // });
+    </script>
+
+
+
+<body ng-app="formExample">
+     <div ng-controller="ExampleController">
+     <form novalidate class="simple-form">
+
+    <div id="page1" class="page" data-role="page"> <!--Page 1-->
+        <div id="navbar" data-role="navbar"><!--NAV-->
+            <ul> 
+                <li><a id="home" class="navBtn" href="#page1" data-transition>Student</a>
+                </li>
+                <li><a id="about" class="navBtn" href="#page0" data-transition>Admin</a>
+                </li>
+            </ul>
+        </div><!--/NAV-->
+    <div id="field" align="center">
+            <div class="ui-field-contain" id="firstName">
+            <label for="textinput-1" ng-model="user.first" class="ui-hidden-accessible">First Name</label>
+            <input type="text" ng-model="user.first" placeholder="First Name" value="">
+            </div>
+            <div class="ui-field-contain" id="lastName">
+            <label for="textinput-1" class="ui-hidden-accessible">Last Name</label>
+            <input type="text" ng-model="user.last" placeholder="Last Name" value="">
+            </div>
+              <div class="ui-field-contain" id="Email">
+            <label for="textinput-1" class="ui-hidden-accessible">Email</label>
+            <input type="text" ng-model="user.email" placeholder="Email" value="">
+            </div>
+            <a href="#page3" class="ui-btn" type="submit">Next</a>
+
+             <div id="logo" align="center">
+            <img src="images/nossiLogo.svg" height="100px" width="150px">
+            </div>
+        </div>
+    </div><!--/page1-->
+
+<div id="page3" class="page" data-role="page"> <!--Page 3-->
+        <div id="navbar" data-role="navbar"><!--NAV-->
+            <ul> 
+                <li><a id="home" class="navBtn" href="#page1" data-transition>Home</a>
+                </li>
+                <li><a id="about" class="navBtn" href="#aboutPage" data-transition>About</a>
+                </li>
+            </ul>
+        </div><!--/NAV-->
+
+        <div id="field" align="center">
+            <div class="ui-field-contain" id="firstName">
+            <label for="textinput-1" class="ui-hidden-accessible">Street Address</label>
+            <input type="text" ng-model="user.street" placeholder="Street Adress" value="">
+            </div>
+            <div class="ui-field-contain" id="lastName">
+            <label for="textinput-1" class="ui-hidden-accessible">city/state</label>
+            <input type="text" ng-model="user.area" placeholder="City, State" value="">
+            </div>
+              <div class="ui-field-contain" id="Email">
+            <label for="textinput-1" class="ui-hidden-accessible">Phone</label>
+            <input type="tel" ng-model="user.phone" placeholder="Phone #" value="">
+            </div>
+        </div>
+        <a href="#page4" class="ui-btn"  type="submit">Next</a>
+
+         <div id="logo" align="center">
+            <img src="images/nossiLogo.svg" height="100px" width="150px">
+            </div>
+    </div> <!--/page3-->
+
+<div id="page4" class="page" data-role="page"> <!--Page 4-->
+        <div id="navbar" data-role="navbar"><!--NAV-->
+            <ul> 
+                <li><a id="home" class="navBtn" href="#page1" data-transition>Home</a>
+                </li>
+                <li><a id="about" class="navBtn" href="#aboutPage" data-transition>About</a>
+                </li>
+            </ul>
+        </div><!--/NAV-->
+
+        <div id="field" align="center">
+            <div class="ui-field-contain" id="firstName">
+            <label for="textinput-1" class="ui-hidden-accessible">HS Name</label>
+            <input type="text" ng-model="user.high" placeholder="High School Attended" value="">
+            </div>
+            <div class="ui-field-contain" id="parName">
+            <label for="textinput-1" class="ui-hidden-accessible">Parent Name</label>
+            <input type="text" ng-model="user.guard" placeholder="Parent Full name" value="">
+            </div>
+            <div class="ui-field-contain" id="parNum">
+            <label for="textinput-1" class="ui-hidden-accessible">Parent Num</label>
+            <input type="tel" ng-model="user.guardNum" placeholder="Parent phone #" value="">
+            </div>
+        </div>
+        <a href="#page5" class="ui-btn"  type="submit">Next</a>
+
+         <div id="logo" align="center">
+            <img src="images/nossiLogo.svg" height="100px" width="150px">
+            </div>
+    </div> <!--/page4-->
+
+<div id="page5" class="page" data-role="page"> <!--Page 5-->
+        <div id="navbar" data-role="navbar"><!--NAV-->
+            <ul> 
+                <li><a id="home" class="navBtn" href="#page1" data-transition>Home</a>
+                </li>
+                <li><a id="about" class="navBtn" href="#aboutPage" data-transition>About</a>
+                </li>
+            </ul>
+        </div><!--/NAV-->
+
+        <div id="field" align="center"><!--field-->
+            <div class="ui-field-contain" id="socMed"><!--soc-->
+            <label for="textinput-1" class="ui-hidden-accessible">Social Media</label>
+            <input type="text" ng-model="user.social" placeholder="What is your Social Media Handle?" value="">
+            </div><!--soc-->
+            </div>
+           <a href="#page6" class="ui-btn" type="submit">FINISH IT!</a>
+       
+
+             <div id="logo" align="center"><!--logo-->
+            <img src="images/nossiLogo.svg" height="100px" width="150px">
+            </div><!--logo-->
+        
+
+    </div> <!--/page5-->
+
+<div id="page6" class="page" data-role="page"> <!--Page 6-->
+    <div id="navbar" data-role="navbar"><!--NAV-->
+            <ul> 
+                <li><a id="home" class="navBtn" href="#page1" data-transition>Home</a>
+                </li>
+                <li><a id="about" class="navBtn" href="#aboutPage" data-transition>About</a>
+                </li>
+            </ul>
+    </div><!--/NAV-->
+
+    <div id="rad" align="center">
+        <img src="https://media.giphy.com/media/xThuWg7lusylvpAVu8/giphy.gif" width="100%">
+    </div>
+        <a href="#page0" class="ui-btn" type="submit" ng-click="addProspect()">You Rock</a>
+
+          
+    <div id="logo" align="center">
+            <img src="images/nossiLogo.svg" height="100px" width="150px">
+    </div>
+        
+      
+        
+    </div> <!--/page6-->
+
+    <div id="page0" class="page" data-role="page"> <!--Page 0-->
+
+        <div id="navbar" data-role="navbar"><!--NAV-->
+            <ul> 
+                <li><a id="home" class="navBtn" href="#page1" data-transition>Student</a>
+                </li>
+                <li><a id="about" class="navBtn" href="#aboutPage" data-transition>Admin</a>
+                </li>
+            </ul>
+        </div><!--/NAV-->
+
+        </form>
+
+              <div style="display:none"> {{ prospectArray }}</div>
+
+       
+    <div id="accordion">
+
+        <div class="accordionItem" ng-repeat="p in prospectArray.prospect" ng-click="toggleAcc($index)">
+         <h3>{{p.first}} {{p.last}}<span class="arrow"></span></h3> 
+             <p>Email: {{p.email}} </p>
+             <p>Street Address: {{p.street}} </p>
+             <p>City, State: {{p.area}} </p>
+             <p>Phone: {{p.phone}} </p>
+             <p>Last School Attended: {{p.high}} </p>
+             <p>Guadian Info: {{p.guard}} | {{p.guardNum}}</p>
+             <p>Social Handle: {{p.social}} </p>
+        </div>
+
+    </div>
+                
+    </div><!--/page0-->
+    <script>
+        angular.module('formExample', [])
+            .controller('ExampleController', ['$scope', function($scope) {
+                $scope.prospectArray = {"prospect":[]};
+                $scope.toggleAcc = function($index){
+                    if( $(".accordionItem").eq($index).css("height") ==  "450px" ){
+                    $(".accordionItem").eq($index).css("height", "60px");
+                     $(".accordionItem").eq($index).find(".arrow").css("transform","rotate(0deg)");
+                     } else {
+                     $(".accordionItem").eq($index).css("height", "450px");
+                     $(".accordionItem").eq($index).find(".arrow").css("transform","rotate(90deg)");
+                    }
+
+                }
+                $scope.addProspect = function(){
+                    $scope.prospectArray.prospect.push($scope.user);
+                    $scope.user = {};
+                }
+
+        }]);
+    </script>
+    
+    </div>
+</body>
+</html>
